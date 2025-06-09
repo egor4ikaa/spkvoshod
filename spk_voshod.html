@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СПК "Восход" - Молодёжный подход к сельскому хозяйству</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="C:\Users\Егор\Downloads\orig.jpeg" type="jpeg">
+<link rel="stylesheet" href="spk_voshod.css">
+<script src="https://cdn.jsdelivr.net/npm/@aws-sdk/client-translate@3.0.0/dist-cjs/index.min.js"></script>
+</head>
+<body>
+<!-- Шапка -->
+<header id="header">
+<div class="container header-container">
+    <div class="logo">
+        <i class="fas fa-leaf"></i>
+        СПК "ВОСХОД"
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav id="nav">
+        <ul>
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#news">Новости</a></li>
+            <li><a href="album.html">Галерея</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Основной контент -->
+<main>
+<!-- Герой секция -->
+<section class="hero" id="hero">
+    <div class="hero-content fade-in">
+        <h1 data-translate>Современное сельское хозяйство</h1>
+        <p data-translate>Качественная продукция, передовые технологии и забота об экологии</p>
+        <a href="#about" class="btn" data-translate>Узнать больше</a>
+    </div>
+</section>
+
+<!-- О нас -->
+<section class="about-section container" id="about">
+    <div class="about-img fade-in">
+        <img src="C:\Users\Егор\Desktop\Spk_voshod\files\zdanie.jpg" alt="СПК Восход">
+    </div>
+    <div class="about-text fade-in delay-1">
+        <h2 class="section-title" data-translate>О нас</h2>
+        <p>Сельскохозяйственный производственный кооператив (колхоз) "Восход" — динамично развивающееся предприятие под руководством председателя Виктора Ивановича Клековкина, зарегистрированное в 2002 году.</p>
+        <p>Коллектив кооператива под руководством опытного председателя продолжает традиции качественного сельхозпроизводства, заложенные еще при основании предприятия.</p>
+        <p>Колхоз специализируется на животноводстве и молочном производстве.</p>
+        
+    </div>
+</section>
+
+<!-- Преимущества -->
+<section class="container" id="advantages">
+    <h2 class="section-title">Наши преимущества</h2>
+    <div class="advantages-grid">
+        <div class="advantage-card fade-in">
+            <div class="advantage-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Производственная мощность</h3>
+            <p>Ферма оснащена современным оборудованием и соответствует всем стандартам сельскохозяйственного производства.</p>
+        </div>
+        
+        <div class="advantage-card fade-in delay-1">
+            <div class="advantage-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Рабочие места</h3>
+            <p>Дополнительные вакансии в сельскохозяйственном секторе (при текущей численности персонала 102 человека).</p>
+        </div>
+        
+        <div class="advantage-card fade-in delay-2">
+            <div class="advantage-icon">
+                <i class="fas fa-city"></i>
+            </div>
+            <h3>Развитие экономики</h3>
+            <p>Предприятие несет существенный вклад в экономическое развитие региона через увеличение налоговых отчислений.</p>
+        </div>
+        
+        <div class="advantage-card fade-in delay-3">
+            <div class="advantage-icon">
+                <i class="fas fa-wine-bottle"></i>
+            </div>
+            <h3>Качество продукции</h3>
+            <p>Современные оборудования позволяют выпускать молочную продукцию премиального качества с улучшенными характеристиками.</p>
+        </div>
+        
+        <div class="advantage-card fade-in delay-1">
+            <div class="advantage-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Экологичность</h3>
+            <p>Использование экологичных технологий и ответственное отношение к природным ресурсам.</p>
+        </div>
+        
+        <div class="advantage-card fade-in delay-2">
+            <div class="advantage-icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3>Опыт и традиции</h3>
+            <p>Более 20 лет успешной работы в сельскохозяйственной отрасли с сохранением лучших традиций.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Новости -->
+<section class="container" id="news">
+    <h2 class="section-title" style="margin-bottom: 20px;">Последние новости</h2>
+    <div class="news-grid">
+        <div class="news-card fade-in">
+            <div class="news-img" style="background-image: url('C:\Users\Егор\Desktop\Spk_voshod\files\ferma.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">15.06.2023</span>
+                <h3>Модернизация фермы</h3>
+                <p>Завершены работы по установке нового оборудования на молочной ферме.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-1">
+            <div class="news-img" style="background-image: url('C:\Users\Егор\Desktop\Spk_voshod\files\milk_apparat.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">02.06.2023</span>
+                <h3>Новые поставки</h3>
+                <p>Заключен договор о поставках молочной продукции в соседний регион.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-2">
+            <div class="news-img" style="background-image: url('C:\Users\Егор\Desktop\Spk_voshod\files\personal-1.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">20.05.2023</span>
+                <h3>Экологическая инициатива</h3>
+                <p>Внедрена система переработки отходов для снижения экологической нагрузки.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-3">
+            <div class="news-img" style="background-image: url('C:\Users\Егор\Desktop\Spk_voshod\files\personal-2.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">10.05.2023</span>
+                <h3>Награждение сотрудников</h3>
+                <p>Лучшие работники кооператива получили награды за профессиональные достижения.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Галерея -->
+<section class="container" id="gallery">
+    <h2 class="section-title">Наша ферма</h2>
+    <div class="gallery">
+        <div class="gallery-item fade-in">
+            <img src="C:\Users\Егор\Desktop\Spk_voshod\files\zdanie.jpg" alt="Здание СПК Восход">
+        </div>
+        <div class="gallery-item fade-in delay-1">
+            <img src="C:\Users\Егор\Desktop\Spk_voshod\files\milk_apparat.jpg" alt="Молочное оборудование">
+        </div>
+        <div class="gallery-item fade-in delay-2">
+            <img src="C:\Users\Егор\Desktop\Spk_voshod\files\ferma.jpg" alt="Ферма СПК Восход">
+        </div>
+        <div class="gallery-item fade-in delay-3">
+            <img src="C:\Users\Егор\Desktop\Spk_voshod\files\personal-1.jpg" alt="Работники СПК Восход">
+        </div>
+    </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+    <div class="container">
+        <h3 class="fade-in">Подпишитесь на наши новости</h3>
+        <p class="fade-in delay-1">Будьте в курсе всех событий и новостей СПК "Восход"</p>
+        <form class="newsletter-form fade-in delay-2" id="subscriptionForm">
+            <input type="email" name="email" class="newsletter-input" placeholder="Ваш email" required>
+            <button type="submit" class="newsletter-btn">Подписаться</button>
+        </form>
+        <div id="formMessage" style="display:none; margin-top:15px;"></div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const email = formData.get('email');
+    const messageDiv = document.getElementById('formMessage');
+    
+    // Замените на ваш URL веб-приложения Google Apps Script
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbywoniLr4WC6x916mWmvko3HmqMQcZhhxdL3zmveoDNHf2PCtZgqg3llcpzgBeW6V-2/exec';
+    
+    fetch(scriptUrl, {
+        method: 'POST',
+        body: JSON.stringify({email: email}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        messageDiv.style.display = 'block';
+        messageDiv.innerHTML = '<p style="color:green;">Спасибо за подписку! Проверьте ваш email для подтверждения.</p>';
+        form.reset();
+    })
+    .catch(error => {
+        messageDiv.style.display = 'block';
+        messageDiv.innerHTML = '<p style="color:red;">Ошибка при отправке. Пожалуйста, попробуйте позже.</p>';
+        console.error('Error:', error);
+    });
+});
+</script>
+
+<!-- Контакты -->
+<section class="container" id="contacts">
+    <h2 class="section-title">Контакты</h2>
+    <div class="contacts-container">
+        <div class="contact-info fade-in">
+            <h3>Контактная информация</h3>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Адрес</h4>
+                    <p id="address">427824, Удмуртская Республика, Малопургинский район, деревня Абдэс-Урдэс, Октябрьская ул., д.6</p>
+                    <button class="copy-btn" onclick="copyToClipboard('address')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Владелец</h4>
+                    <p id="owner">Клековкин Виктор Иванович</p>
+                    <button class="copy-btn" onclick="copyToClipboard('owner')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Телефон</h4>
+                    <p id="phone">+7 (341) 386-32-71, +7 (904) 314-46-60</p>
+                    <button class="copy-btn" onclick="copyToClipboard('phone')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Почта</h4>
+                    <p id="email">spk-voschod@yandex.ru</p>
+                    <button class="copy-btn" onclick="copyToClipboard('email')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Реквизиты</h4>
+                    <p>ИНН: <span id="inn">1816003086</span></p>
+                    <button class="copy-btn" onclick="copyToClipboard('inn')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                    <p>КПП: <span id="kpp">182101001</span></p>
+                    <button class="copy-btn" onclick="copyToClipboard('kpp')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                    <p>ОГРН: <span id="ogrn">1021800642665</span></p>
+                    <button class="copy-btn" onclick="copyToClipboard('ogrn')">
+                        <i class="far fa-copy"></i> 
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="map-container">
+            <!-- Карта Яндекса -->
+            <script src="https://api-maps.yandex.ru/2.1/?apikey=9a405274-74e5-4925-9403-e12ddd4fe6d0&lang=ru_RU" type="text/javascript"></script>
+            <script type="text/javascript">
+                ymaps.ready(init);
+                
+                function init() {
+                    // Координаты СПК "Восход"
+                    var myMap = new ymaps.Map("map-container", {
+                        center: [56.491220, 52.841043], // Широта, долгота
+                        zoom: 17
+                    });
+                    
+                    // Добавляем метку
+                    var myPlacemark = new ymaps.Placemark([56.491220, 52.841043], {
+                        hintContent: 'СПК "Восход"',
+                        balloonContent: 'Сельскохозяйственный производственный кооператив "Восход"<br>Октябрьская ул., д.6'
+                    });
+                    
+                    myMap.geoObjects.add(myPlacemark);
+                }
+            </script>
+            <div id="map-container" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+    
+    <div class="documents fade-in delay-2">
+        <h4>Учредительные документы</h4>
+        <ul>
+            <li><a href="" download><i class="fas fa-file-pdf"></i> Устав СПК "Восход"</a></li>
+            <li><a href=""><i class="fas fa-file-pdf"></i> Свидетельство о регистрации</a></li>
+            <li><a href="C:\Users\Егор\Desktop\Spk_voshod\files\egrul.pdf" download><i class="fas fa-file-pdf"></i> Свидетельство ЕГРЮЛ</a></li>
+            <li><a href="spk_voshod_otchet.html"><i class="fas fa-file-pdf"></i> Отчеты от ФНС</a></li>
+        </ul>
+    </div>
+    
+    <div class="resources fade-in delay-3">
+        <h4>Полезные ресурсы</h4>
+        <ul>
+            <li><a href="#"><i class="fas fa-external-link-alt"></i> МФЦ</a></li>
+            <li><a href="#"><i class="fas fa-external-link-alt"></i> ФГИСГП</a></li>
+            <li><a href="#"><i class="fas fa-external-link-alt"></i> Госпортал</a></li>
+        </ul>
+    </div>
+</section>
+</main>
+
+<!-- Подвал -->
+<footer>
+<div class="container footer-container">
+    <div class="footer-about">
+        <div class="footer-logo">
+            <i class="fas fa-leaf"></i>
+            СПК "ВОСХОД"
+        </div>
+        <p>Сельскохозяйственный производственный кооператив "Восход" - современное предприятие с традициями.</p>
+        <div class="social-links">
+            <a href="https://vk.com/public204257075"><i class="fab fa-vk"></i></a>
+        </div>
+    </div>
+    
+    <div class="footer-links">
+        <h4>Навигация</h4>
+        <ul>
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#news">Новости</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-links">
+        <h4>Документы</h4>
+        <ul>
+            <li><a href="spk_voshod_otchet.html">Отчеты</a></li>
+            <li><a href="album.html">Фотоальбом</a></li>
+            <li><a href="#">Вакансии</a></li>
+            <li><a href="#">Продукция</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-contact">
+        <h4>Контакты</h4>
+        <p><i class="fas fa-map-marker-alt"></i> 427824, Удмуртская Республика, Малопургинский район, деревня Абдэс-Урдэс, Октябрьская ул., д.6</p>
+        <p><i class="fas fa-phone"></i> +7 (341) 386-32-71</p>
+        <p><i class="fas fa-mobile-alt"></i> +7 (904) 314-46-60</p>
+        <p><i class="fas fa-envelope"></i> spk-voschod@yandex.ru</p>
+    </div>
+</div>
+
+<div class="copyright">
+    <p>&copy; 2025 СПК "Восход". Все права защищены.</p>
+</div>
+</footer>
+
+<script>
+  function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    let textToCopy;
+    
+    // Если это span внутри реквизитов
+    if (element.tagName === 'SPAN') {
+        textToCopy = element.textContent;
+    } else {
+        textToCopy = element.textContent || element.innerText;
+    }
+    
+    navigator.clipboard.writeText(textToCopy.trim())
+        .then(() => {
+            // Визуальная обратная связь
+            const btn = element.nextElementSibling;
+            if (btn && btn.classList.contains('copy-btn')) {
+                const originalIcon = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = originalIcon;
+                }, 2000);
+            }
+        })
+        .catch(err => {
+            console.error('Не удалось скопировать текст: ', err);
+        });
+}
+</script>
+
