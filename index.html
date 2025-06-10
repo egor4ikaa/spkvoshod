@@ -427,6 +427,34 @@
             console.error('Не удалось скопировать текст: ', err);
         });
 }
+    document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('nav');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        // Переключаем класс 'active' у навигации
+        nav.classList.toggle('active');
+        
+        // Меняем иконку при открытии/закрытии
+        const icon = this.querySelector('i');
+        if (nav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    // Закрываем меню при клике на ссылку
+    document.querySelectorAll('#nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+        });
+    });
+});
 </script>
     
 
