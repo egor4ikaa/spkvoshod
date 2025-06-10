@@ -615,7 +615,6 @@ animation: fadeIn 0.8s ease forwards;
 .newsletter-btn {
     border-radius: 50px;
 }
-}
 @media(max-width: 576px) {
 .hero {
     height: 400px;
