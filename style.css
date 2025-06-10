@@ -97,6 +97,7 @@ list-style: none;
 }
 nav li {
 margin-left: 25px;
+text-align: center;
 }
 nav a {
 color: var(--white);
@@ -581,7 +582,7 @@ animation: fadeIn 0.8s ease forwards;
         top: 70px;
         left: 0;
         width: 100%;
-        background: #333;
+        background: #4CAF50;
         flex-direction: column;
         padding: 20px 0;
         transform: translateY(-150%);
@@ -615,6 +616,7 @@ animation: fadeIn 0.8s ease forwards;
 .newsletter-btn {
     border-radius: 50px;
 }
+
 @media(max-width: 576px) {
 .hero {
     height: 400px;
