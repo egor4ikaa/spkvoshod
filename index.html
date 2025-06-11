@@ -114,55 +114,27 @@
     </div>
 </section>
 
-<!-- Новости -->
 <section class="container" id="news">
-    <h2 class="section-title" style="margin-bottom: 20px;">Последние новости</h2>
-    <div class="news-grid">
-        <div class="news-card fade-in">
-            <div class="news-img" style="background-image: url('ferma.jpg');"></div>
-            <div class="news-content">
-                <span class="news-date">15.06.2023</span>
-                <h3>Модернизация фермы</h3>
-                <p>Завершены работы по установке нового оборудования на молочной ферме.</p>
-            </div>
-        </div>
-        
-        <div class="news-card fade-in delay-1">
-            <div class="news-img" style="background-image: url('milk_apparat.jpg');"></div>
-            <div class="news-content">
-                <span class="news-date">02.06.2023</span>
-                <h3>Новые поставки</h3>
-                <p>Заключен договор о поставках молочной продукции в соседний регион.</p>
-            </div>
-        </div>
-        
-        <div class="news-card fade-in delay-2">
-            <div class="news-img" style="background-image: url('personal-1.jpg');"></div>
-            <div class="news-content">
-                <span class="news-date">20.05.2023</span>
-                <h3>Экологическая инициатива</h3>
-                <p>Внедрена система переработки отходов для снижения экологической нагрузки.</p>
-            </div>
-        </div>
-        
-        <div class="news-card fade-in delay-3">
-            <div class="news-img" style="background-image: url('personal-2.jpg');"></div>
-            <div class="news-content">
-                <span class="news-date">10.05.2023</span>
-                <h3>Награждение сотрудников</h3>
-                <p>Лучшие работники кооператива получили награды за профессиональные достижения.</p>
-            </div>
+    <h2 class="section-title">Последние новости</h2>
+    <div class="news-grid" id="news-container">
+        <div class="news-loading">
+            <i class="fas fa-spinner fa-spin"></i> Загрузка новостей...
         </div>
     </div>
+    
+    <!-- Кнопка для админа (можно скрыть через CSS) -->
+    <a href="ВАША_ССЫЛКА_НА_GOOGLE_TABLICU" 
+       target="_blank" 
+       class="admin-btn" 
+       style="display: none;">
+       <i class="fas fa-edit"></i> Добавить новость
+    </a>
 </section>
 
 <!-- Галерея -->
 <section class="container" id="gallery">
     <h2 class="section-title">Наша ферма</h2>
     <div class="gallery">
-        <div class="gallery-item fade-in">
-            <img src="zdanie.jpg" alt="Здание СПК Восход">
-        </div>
         <div class="gallery-item fade-in delay-1">
             <img src="milk_apparat.jpg" alt="Молочное оборудование">
         </div>
