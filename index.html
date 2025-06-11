@@ -1,40 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>СПК "Восход" - Молодёжный подход к сельскому хозяйству</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="orig.jpeg" type="jpeg">
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/@aws-sdk/client-translate@3.0.0/dist-cjs/index.min.js"></script>
-</head>
-<body>
-<!-- Шапка -->
-<header id="header">
-<div class="container header-container">
-    <div class="logo">
-        <i class="fas fa-leaf"></i>
-        СПК "ВОСХОД"
-    </div>
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-    </button>
-    <nav id="nav">
-        <ul>
-            <li><a href="#hero">Главная</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#news">Новости</a></li>
-            <li><a href="album.html">Галерея</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
-    </nav>
-</div>
-</header>
-
 <!-- Основной контент -->
 <main>
 <!-- Герой секция -->
@@ -114,21 +77,46 @@
     </div>
 </section>
 
+<!-- Новости -->
 <section class="container" id="news">
-    <h2 class="section-title">Последние новости</h2>
-    <div class="news-grid" id="news-container">
-        <div class="news-loading">
-            <i class="fas fa-spinner fa-spin"></i> Загрузка новостей...
+    <h2 class="section-title" style="margin-bottom: 20px;">Последние новости</h2>
+    <div class="news-grid">
+        <div class="news-card fade-in">
+            <div class="news-img" style="background-image: url('ferma.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">15.06.2023</span>
+                <h3>Модернизация фермы</h3>
+                <p>Завершены работы по установке нового оборудования на молочной ферме.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-1">
+            <div class="news-img" style="background-image: url('milk_apparat.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">02.06.2023</span>
+                <h3>Новые поставки</h3>
+                <p>Заключен договор о поставках молочной продукции в соседний регион.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-2">
+            <div class="news-img" style="background-image: url('personal-1.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">20.05.2023</span>
+                <h3>Экологическая инициатива</h3>
+                <p>Внедрена система переработки отходов для снижения экологической нагрузки.</p>
+            </div>
+        </div>
+        
+        <div class="news-card fade-in delay-3">
+            <div class="news-img" style="background-image: url('personal-2.jpg');"></div>
+            <div class="news-content">
+                <span class="news-date">10.05.2023</span>
+                <h3>Награждение сотрудников</h3>
+                <p>Лучшие работники кооператива получили награды за профессиональные достижения.</p>
+            </div>
         </div>
     </div>
-    
-    <!-- Кнопка для админа (можно скрыть через CSS) -->
-    <a href="https://docs.google.com/spreadsheets/d/1W3XxOn0n64Im0svLkCBn0k3rjJezZ2HajnkkHYHufYU" 
-       target="_blank" 
-       class="admin-btn" 
-       style="display: none;">
-       <i class="fas fa-edit"></i> Добавить новость
-    </a>
 </section>
 
 <!-- Галерея -->
@@ -371,60 +359,6 @@
 </div>
 </footer>
 
-
-<script>
-// URL из шага 3
-const NEWS_API_URL = 'https://script.google.com/macros/s/AKfycbwZNKJoNs7WGg-gG2RGgzu6I-fVIlbXxorcx07PXQzrTQgMb1aHVAcgr_mitKzPhV4i/exec';
-
-// Показать кнопку админа если URL содержит параметр
-if (window.location.href.includes('?admin')) {
-    document.querySelector('.admin-btn').style.display = 'inline-block';
-}
-
-// Загрузка новостей
-fetch(NEWS_API_URL)
-  .then(response => {
-    if (!response.ok) throw new Error('Ошибка загрузки');
-    return response.json();
-  })
-  .then(news => {
-    const container = document.getElementById('news-container');
-    container.innerHTML = '';
-    
-    if (news.length === 0) {
-        container.innerHTML = '<div class="no-news">Новостей пока нет</div>';
-        return;
-    }
-    
-    news.forEach((item, index) => {
-        const delayClass = index < 4 ? `delay-${index}` : '';
-        container.innerHTML += `
-        <div class="news-card fade-in ${delayClass}">
-            ${item.image ? `
-            <div class="news-img" style="background-image: url('${item.image}')"></div>
-            ` : `<div class="news-img no-image"><i class="fas fa-newspaper"></i></div>`}
-            <div class="news-content">
-                <span class="news-date">${item.date}</span>
-                <h3>${item.title}</h3>
-                <p>${item.text}</p>
-            </div>
-        </div>
-        `;
-    });
-  })
-  .catch(error => {
-    document.getElementById('news-container').innerHTML = `
-        <div class="news-error">
-            <i class="fas fa-exclamation-triangle"></i>
-            <p>Не удалось загрузить новости. Попробуйте позже.</p>
-            <small>${error.message}</small>
-        </div>
-    `;
-    console.error('News loading error:', error);
-  });
-</script>
-
-    
 <script>
   function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
@@ -482,6 +416,3 @@ fetch(NEWS_API_URL)
     });
 });
 </script>
-    
-    
-
