@@ -123,7 +123,7 @@
     </div>
     
     <!-- Кнопка для админа (можно скрыть через CSS) -->
-    <a href="ВАША_ССЫЛКА_НА_GOOGLE_TABLICU" 
+    <a href="https://docs.google.com/spreadsheets/d/1W3XxOn0n64Im0svLkCBn0k3rjJezZ2HajnkkHYHufYU/edit?gid=0#gid=0" 
        target="_blank" 
        class="admin-btn" 
        style="display: none;">
@@ -371,6 +371,60 @@
 </div>
 </footer>
 
+
+<script>
+// URL из шага 3
+const NEWS_API_URL = 'https://script.google.com/macros/s/AKfycbx1QhgUFn2kAPQQyoWXRgNYpPH-DqPqqvqiL628cfYhI9tym4nFoIILBUpd3ojHSxs/exec';
+
+// Показать кнопку админа если URL содержит параметр
+if (window.location.href.includes('?admin')) {
+    document.querySelector('.admin-btn').style.display = 'inline-block';
+}
+
+// Загрузка новостей
+fetch(NEWS_API_URL)
+  .then(response => {
+    if (!response.ok) throw new Error('Ошибка загрузки');
+    return response.json();
+  })
+  .then(news => {
+    const container = document.getElementById('news-container');
+    container.innerHTML = '';
+    
+    if (news.length === 0) {
+        container.innerHTML = '<div class="no-news">Новостей пока нет</div>';
+        return;
+    }
+    
+    news.forEach((item, index) => {
+        const delayClass = index < 4 ? `delay-${index}` : '';
+        container.innerHTML += `
+        <div class="news-card fade-in ${delayClass}">
+            ${item.image ? `
+            <div class="news-img" style="background-image: url('${item.image}')"></div>
+            ` : `<div class="news-img no-image"><i class="fas fa-newspaper"></i></div>`}
+            <div class="news-content">
+                <span class="news-date">${item.date}</span>
+                <h3>${item.title}</h3>
+                <p>${item.text}</p>
+            </div>
+        </div>
+        `;
+    });
+  })
+  .catch(error => {
+    document.getElementById('news-container').innerHTML = `
+        <div class="news-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Не удалось загрузить новости. Попробуйте позже.</p>
+            <small>${error.message}</small>
+        </div>
+    `;
+    console.error('News loading error:', error);
+  });
+</script>
+
+    
 <script>
   function copyToClipboard(elementId) {
     const element = document.getElementById(elementId);
@@ -428,5 +482,6 @@
     });
 });
 </script>
+    
     
 
