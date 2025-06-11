@@ -193,21 +193,58 @@ box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 background-color: #FFD54F;
 }
 
-
-.news-loading {
-    text-align: center;
-    padding: 20px;
-    grid-column: 1 / -1;
+/* Новости */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
 }
-.admin-btn {
+
+.news-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.news-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-date {
     display: inline-block;
-    margin-top: 20px;
     background: #4CAF50;
     color: white;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
 }
 
+.news-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
 
 /* О нас */
 .about-section {
