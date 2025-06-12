@@ -3,202 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Альбом СПК "ВОСХОД"</title>
+    <title>Фотогалерея СПК "Восход"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="album.css">
     <link rel="shortcut icon" href="orig.jpeg" type="jpeg">
-</head>
+    <link rel="stylesheet" href="album.css">
+    </head>
 <body>
     <div class="container">
-        <header class="album-header">
+        <header>
             <h1>Альбом СПК "Восход"</h1>
             <p class="subtitle">Фотогалерея нашего сельскохозяйственного предприятия</p>
         </header>
         
-        <div class="album-section">
-            <div class="section-header">
-                <h2 class="section-title">Работа</h2>
-                <p class="section-description">Современное оборудование для сельскохозяйственного производства</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="rabota.jpg" alt="Работа 1">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Современная техника</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="rabota-4.jpg" alt="Работа 2">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Работа в поле</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="rabota-3.jpg" alt="Работа 3">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Сельхозтехника</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="rabota-4.jpg" alt="Работа 4">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Уборочная кампания</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">Все</button>
+            <button class="filter-btn" data-category="work">Работа</button>
+            <button class="filter-btn" data-category="building">Здания</button>
+            <button class="filter-btn" data-category="staff">Персонал</button>
+            <button class="filter-btn" data-category="equipment">Оборудование</button>
         </div>
         
-        <div class="album-section">
-            <div class="section-header">
-                <h2 class="section-title">Здание крупного рогатого скота (КРС)</h2>
-                <p class="section-description">Современные коровники, соответствующие всем стандартам</p>
+        <div class="gallery-container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Фотографии будут добавляться через JavaScript -->
             </div>
             
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="zdanie.jpg" alt="Здание КРС">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Ферма СПК "Восход"</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="ferma.jpg" alt="Ферма">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Коровники</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="milk_apparat.jpg" alt="Молочное оборудование">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Молочное оборудование</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="album-section">
-            <div class="section-header">
-                <h2 class="section-title">Персонал</h2>
-                <p class="section-description">Наш дружный коллектив из 102 специалистов</p>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="vladelec.jpg" alt="Председатель Клековкин В.И.">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Председатель Клековкин В.И.</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="personal-1.jpg" alt="Персонал 1">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Наш коллектив</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="personal-2.jpg" alt="Персонал 2">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Работники фермы</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="personal-3.jpg" alt="Персонал 3">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Специалисты</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="personal-4.jpg" alt="Персонал 4">
-                    <div class="image-overlay">
-                        <div class="overlay-content">
-                            <p>Специалисты женский персонал</p>
-                            <button class="zoom-btn"><i class="fas fa-search-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="load-more" id="loadMore">Загрузить еще</button>
         </div>
     </div>
-    <footer>
-        <p>© 2025 СПК "Восход". Все права защищены.</p>
-    </footer>
-
-    <!-- Модальное окно для увеличенного изображения -->
+    
+    <!-- Модальное окно для просмотра фото -->
     <div class="modal" id="imageModal">
         <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="caption" id="modalCaption"></div>
+        <span class="nav-btn prev-btn">&lt;</span>
+        <span class="nav-btn next-btn">&gt;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDate"></p>
+            </div>
+        </div>
     </div>
-
+    
     <script>
-        // Открытие модального окна с изображением
-        document.querySelectorAll('.zoom-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const imgSrc = this.closest('.gallery-item').querySelector('img').src;
-                const imgAlt = this.closest('.gallery-item').querySelector('img').alt;
-                const modal = document.getElementById('imageModal');
-                const modalImg = document.getElementById('modalImage');
-                const captionText = document.getElementById('modalCaption');
-                
-                modal.style.display = "block";
-                modalImg.src = imgSrc;
-                captionText.innerHTML = imgAlt;
+        // Данные фотографий (в реальном проекте можно загружать с сервера)
+        const photos = [
+            { id: 1, src: 'rabota.jpg', title: 'Современная техника', category: 'work', date: '15.05.2023' },
+            { id: 2, src: 'rabota-2.jpg', title: 'Работа в поле', category: 'work', date: '20.06.2024' },
+            { id: 3, src: 'rabota-3.jpg', title: 'Сельхозтехника', category: 'work', date: '10.07.2024' },
+            { id: 4, src: 'rabota-4.jpg', title: 'Уборочная кампания', category: 'work', date: '25.08.2024' },
+            { id: 5, src: 'zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building', date: '05.04.2024' },
+            { id: 6, src: 'ferma.jpg', title: 'Коровники', category: 'building', date: '12.04.2024' },
+            { id: 7, src: 'milk_apparat.jpg', title: 'Молочное оборудование', category: 'equipment', date: '18.05.2024' },
+            { id: 8, src: 'vladelec.jpg', title: 'Председатель Клековкин В.И.', category: 'staff', date: '01.03.2024' },
+            { id: 9, src: 'personal-1.jpg', title: 'Наш коллектив', category: 'staff', date: '08.03.2024' },
+            { id: 10, src: 'personal-2.jpg', title: 'Работники фермы', category: 'staff', date: '15.03.2024' },
+            { id: 11, src: 'personal-3.jpg', title: 'Специалисты', category: 'staff', date: '22.03.2024' },
+            { id: 12, src: 'personal-4.jpg', title: 'Женский персонал', category: 'staff', date: '29.03.2024' },
+            // Добавьте больше фотографий по необходимости
+        ];
+        
+        // Элементы DOM
+        const galleryGrid = document.getElementById('galleryGrid');
+        const loadMoreBtn = document.getElementById('loadMore');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDate = document.getElementById('modalDate');
+        const closeBtn = document.querySelector('.close-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        // Переменные состояния
+        let currentCategory = 'all';
+        let visiblePhotos = 8;
+        let currentPhotos = [];
+        let currentIndex = 0;
+        
+        // Инициализация галереи
+        function initGallery() {
+            filterPhotos();
+            renderPhotos();
+            
+            // Ленивая загрузка изображений
+            const lazyImages = document.querySelectorAll('.gallery-img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+        
+        // Фильтрация фотографий по категории
+        function filterPhotos() {
+            if (currentCategory === 'all') {
+                currentPhotos = [...photos];
+            } else {
+                currentPhotos = photos.filter(photo => photo.category === currentCategory);
+            }
+            visiblePhotos = 8; // Сброс счетчика при смене категории
+        }
+        
+        // Отрисовка фотографий
+        function renderPhotos() {
+            const photosToShow = currentPhotos.slice(0, visiblePhotos);
+            
+            galleryGrid.innerHTML = photosToShow.map(photo => `
+                <div class="gallery-item" data-id="${photo.id}" data-category="${photo.category}">
+                    <img class="gallery-img" data-src="${photo.src}" alt="${photo.title}">
+                    <div class="image-info">
+                        <h4 class="image-title">${photo.title}</h4>
+                        <p class="image-date">${photo.date}</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Показать/скрыть кнопку "Загрузить еще"
+            loadMoreBtn.style.display = visiblePhotos >= currentPhotos.length ? 'none' : 'block';
+            
+            // Добавить обработчики событий для открытия модального окна
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => openModal(parseInt(item.dataset.id)));
+            });
+        }
+        
+        // Открытие модального окна
+        function openModal(id) {
+            currentIndex = currentPhotos.findIndex(photo => photo.id === id);
+            updateModal();
+            imageModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Обновление содержимого модального окна
+        function updateModal() {
+            const photo = currentPhotos[currentIndex];
+            modalImage.src = photo.src;
+            modalTitle.textContent = photo.title;
+            modalDate.textContent = photo.date;
+            modalImage.classList.add('fade-in');
+            
+            setTimeout(() => {
+                modalImage.classList.remove('fade-in');
+            }, 500);
+        }
+        
+        // Закрытие модального окна
+        function closeModal() {
+            imageModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Навигация по фотографиям в модальном окне
+        function navigate(direction) {
+            if (direction === 'prev' && currentIndex > 0) {
+                currentIndex--;
+            } else if (direction === 'next' && currentIndex < currentPhotos.length - 1) {
+                currentIndex++;
+            }
+            updateModal();
+        }
+        
+        // Обработчики событий
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                filterPhotos();
+                renderPhotos();
             });
         });
-
-        // Закрытие модального окна
-        document.querySelector('.close-btn').addEventListener('click', function() {
-            document.getElementById('imageModal').style.display = "none";
+        
+        loadMoreBtn.addEventListener('click', () => {
+            visiblePhotos += 4;
+            renderPhotos();
+            
+            // Прокрутка к новым элементам
+            setTimeout(() => {
+                const items = document.querySelectorAll('.gallery-item');
+                if (items.length > 0) {
+                    items[items.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }, 100);
         });
-
-        // Закрытие при клике вне изображения
-        window.addEventListener('click', function(event) {
-            if (event.target === document.getElementById('imageModal')) {
-                document.getElementById('imageModal').style.display = "none";
+        
+        closeBtn.addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', () => navigate('prev'));
+        nextBtn.addEventListener('click', () => navigate('next'));
+        
+        // Закрытие по клику вне изображения
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeModal();
             }
         });
+        
+        // Навигация клавиатурой
+        document.addEventListener('keydown', (e) => {
+            if (imageModal.style.display === 'block') {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') navigate('prev');
+                if (e.key === 'ArrowRight') navigate('next');
+            }
+        });
+        
+        // Инициализация при загрузке
+        window.addEventListener('DOMContentLoaded', initGallery);
     </script>
 </body>
 </html>
