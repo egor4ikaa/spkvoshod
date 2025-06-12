@@ -343,45 +343,59 @@ opacity: 1;
 
 /* Рассылка */
 .newsletter {
-background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-padding: 60px 0;
-color: var(--white);
-text-align: center;
-border-radius: 10px;
-margin-bottom: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 60px 0;
+    color: var(--white);
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 60px;
 }
+
 .newsletter h3 {
-font-size: 1.8rem;
-margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
 }
+
 .newsletter p {
-max-width: 600px;
-margin: 0 auto 30px;
+    max-width: 600px;
+    margin: 0 auto 30px;
 }
+
 .newsletter-form {
-display: flex;
-max-width: 500px;
-margin: 0 auto;
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
 }
+
 .newsletter-input {
-flex: 1;
-padding: 15px;
-border: none;
-border-radius: 50px 0 0 50px;
-font-size: 1rem;
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
 }
+
 .newsletter-btn {
-padding: 15px 30px;
-background: var(--accent);
-color: var(--text);
-border: none;
-border-radius: 0 50px 50px 0;
-font-weight: 700;
-cursor: pointer;
-transition: var(--transition);
+    padding: 15px 30px;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: 0 50px 50px 0;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
 }
+
 .newsletter-btn:hover {
-background: #FFD54F;
+    background: #FFD54F;
+}
+
+/* Сообщение формы */
+#formMessage p {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    max-width: 80%;
 }
 
 /* Контакты */
