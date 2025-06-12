@@ -176,42 +176,46 @@
 <section class="newsletter" id="newsletter">
     <div class="container">
         <h3 class="fade-in">Подпишитесь на наши новости</h3>
-        <p class="fade-in delay-1">Будьте в курсе всех событий и новостей СПК "Восход"</p>
+        <p class="fade-in delay-1">Будьте в курсе всех событий и новостей</p>
+        
         <form class="newsletter-form fade-in delay-2" 
-          action="https://formspree.io/f/manjobwk" 
-          method="POST">
-        <input type="email" name="email" placeholder="Ваш email" required>
-        <button type="submit">Подписаться</button>
-    <div id="formMessage" style="display:none;"></div>
+              action="https://formspree.io/f/ваш-formspree-id" 
+              method="POST">
+            <input type="email" name="email" class="newsletter-input" placeholder="Ваш email" required>
+            <button type="submit" class="newsletter-btn">Подписаться</button>
+        </form>
+        
+        <div id="formMessage" style="display:none; margin-top:15px;"></div>
     </div>
 </section>
 <script>
-document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Отменяем стандартную отправку
-    const form = e.target;
-    const formData = new FormData(form); // Собираем данные формы
-    const messageDiv = document.getElementById('formMessage');
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const messageDiv = document.getElementById('formMessage');
 
-    // Отправляем данные через Fetch API
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' } // Ждем JSON-ответ
-    })
-    .then(response => {
-        if (response.ok) {
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = '<p style="background: rgba(0,255,0,0.1); color: #4CAF50; border: 1px solid #4CAF50;">✅ Спасибо за подписку!</p>';
+                form.reset();
+            } else {
+                throw new Error('Ошибка сети');
+            }
+        })
+        .catch(error => {
             messageDiv.style.display = 'block';
-            messageDiv.innerHTML = '✅ Спасибо за подписку!';
-            form.reset(); // Очищаем форму
-        } else {
-            throw new Error('Ошибка сети');
-        }
-    })
-    .catch(error => {
-        messageDiv.style.display = 'block';
-        messageDiv.innerHTML = '❌ Ошибка при отправке. Попробуйте позже.';
+            messageDiv.innerHTML = '<p style="background: rgba(255,0,0,0.1); color: #F44336; border: 1px solid #F44336;">❌ Ошибка при отправке. Пожалуйста, попробуйте позже.</p>';
+        });
     });
-});
 </script>
 
 <!-- Контакты -->
