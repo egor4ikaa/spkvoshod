@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #2c8a4a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin: 30px 0;
+    color: #2c8a4a;
+    font-size: 32px;
+}
+
+.history-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.history-section {
+    margin-bottom: 30px;
+}
+
+.history-section h2 {
+    color: #1e6b3a;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #c8e6c9;
+    padding-bottom: 5px;
+}
+
+.history-section p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 60px;
+    margin: 30px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #2c8a4a;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-year {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #2c8a4a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #2c8a4a;
+}
+
+footer {
+    background-color: #2c8a4a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 50px;
+    }
+    
+    .timeline::before {
+        left: 25px;
+    }
+    
+    .timeline-year {
+        left: -25px;
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
