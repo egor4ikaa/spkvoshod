@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 messageDiv.style.display = 'block';
                 messageDiv.innerHTML = `
-                    <div style="background: #e8f5e9; color: #ffffff; padding: 15px; border-radius: 4px; border: 1px solid #c8e6c9;">
+                    <div style="background: #e8f5e9; color: #2e7d32; padding: 15px; border-radius: 4px; border: 1px solid #c8e6c9;">
                         <i class="fas fa-check-circle"></i> ✅ Спасибо за подписку!
                     </div>
                 `;
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 messageDiv.style.display = 'block';
                 messageDiv.innerHTML = `
-                    <div style="background: #ffebee; color: #ffffff; padding: 15px; border-radius: 4px; border: 1px solid #ffcdd2;">
+                    <div style="background: #ffebee; color: #2e7d32; padding: 15px; border-radius: 4px; border: 1px solid #ffcdd2;">
                         <i class="fas fa-exclamation-circle"></i> ❌ Ошибка при отправке. Пожалуйста, попробуйте позже.
                     </div>
                 `;
