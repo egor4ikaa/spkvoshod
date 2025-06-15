@@ -179,9 +179,11 @@
         <p class="fade-in delay-1">Будьте в курсе всех событий и новостей</p>
         
         <form class="newsletter-form fade-in delay-2" 
-              action="https://formspree.io/f/ваш-formspree-id" 
+              action="https://formspree.io/f/mdkzgdnb" 
               method="POST">
             <input type="email" name="email" class="newsletter-input" placeholder="Ваш email" required>
+            <!-- Скрытое поле для защиты от спама -->
+            <input type="text" name="_gotcha" style="display:none">
             <button type="submit" class="newsletter-btn">Подписаться</button>
         </form>
         
@@ -189,33 +191,63 @@
     </div>
 </section>
 <script>
-    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const messageDiv = document.getElementById('formMessage');
-
-        fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                messageDiv.style.display = 'block';
-                messageDiv.innerHTML = '<p style="background: rgba(0,255,0,0.1); color: #4CAF50; border: 1px solid #4CAF50;">✅ Спасибо за подписку!</p>';
-                form.reset();
-            } else {
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.newsletter-form');
+    const messageDiv = document.getElementById('formMessage');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Показываем загрузку
+            const submitBtn = form.querySelector('[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
                 throw new Error('Ошибка сети');
-            }
-        })
-        .catch(error => {
-            messageDiv.style.display = 'block';
-            messageDiv.innerHTML = '<p style="background: rgba(255,0,0,0.1); color: #F44336; border: 1px solid #F44336;">❌ Ошибка при отправке. Пожалуйста, попробуйте позже.</p>';
+            })
+            .then(data => {
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = `
+                    <div style="background: #e8f5e9; color: #ffffff; padding: 15px; border-radius: 4px; border: 1px solid #c8e6c9;">
+                        <i class="fas fa-check-circle"></i> ✅ Спасибо за подписку!
+                    </div>
+                `;
+                form.reset();
+            })
+            .catch(error => {
+                messageDiv.style.display = 'block';
+                messageDiv.innerHTML = `
+                    <div style="background: #ffebee; color: #ffffff; padding: 15px; border-radius: 4px; border: 1px solid #ffcdd2;">
+                        <i class="fas fa-exclamation-circle"></i> ❌ Ошибка при отправке. Пожалуйста, попробуйте позже.
+                    </div>
+                `;
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Автоматически скрываем сообщение через 5 секунд
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            });
         });
-    });
+    }
+});
 </script>
 
 <!-- Контакты -->
