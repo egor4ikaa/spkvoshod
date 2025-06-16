@@ -77,26 +77,42 @@
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
 
+        // Текущий индекс для пагинации
+        let currentPage = 1;
+        const photosPerPage = 8;
 
-        function displayPhotos(filteredPhotos) {
+        function displayPhotos(filteredPhotos, page = 1) {
             galleryGrid.innerHTML = ''; // Очищаем галерею перед отображением новых фото
-            filteredPhotos.forEach(photo => {
+            
+            const startIndex = (page - 1) * photosPerPage;
+            const endIndex = startIndex + photosPerPage;
+            const photosToShow = filteredPhotos.slice(startIndex, endIndex);
+            
+            photosToShow.forEach(photo => {
                 const imgContainer = document.createElement('div');
                 imgContainer.classList.add('gallery-item');
+                
                 const img = document.createElement('img');
                 img.src = photo.src;
                 img.alt = photo.title;
+                img.loading = "lazy"; // Ленивая загрузка для оптимизации
+                
                 img.addEventListener('click', () => {
                     openModal(photo);
                 });
+                
                 imgContainer.appendChild(img);
                 galleryGrid.appendChild(imgContainer);
             });
+            
+            // Показываем/скрываем кнопку "Загрузить еще"
+            loadMoreBtn.style.display = endIndex < filteredPhotos.length ? 'block' : 'none';
         }
 
         function filterPhotos(category) {
             const filteredPhotos = category === 'all' ? photos : photos.filter(photo => photo.category === category);
-            displayPhotos(filteredPhotos);
+            currentPage = 1; // Сбрасываем страницу при фильтрации
+            displayPhotos(filteredPhotos, currentPage);
         }
 
         filterBtns.forEach(btn => {
@@ -113,13 +129,27 @@
             modalTitle.textContent = photo.title;
             modalDate.textContent = photo.date;
             imageModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+            
+            // Устанавливаем текущий индекс для навигации
+            currentImageIndex = photos.findIndex(p => p.id === photo.id);
         }
 
-        closeBtn.addEventListener('click', () => {
+        function closeModal() {
             imageModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку страницы
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закрытие модального окна при клике вне изображения
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeModal();
+            }
         });
 
-        //Функция для переключения картинок в модальном окне
+        // Функция для переключения картинок в модальном окне
         let currentImageIndex = 0;
         function showImage(index) {
             if (index < 0) {
@@ -132,9 +162,40 @@
             openModal(photos[currentImageIndex]);
         }
 
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentImageIndex - 1);
+        });
+        
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentImageIndex + 1);
+        });
 
-        prevBtn.addEventListener('click', () => showImage(currentImageIndex - 1));
-        nextBtn.addEventListener('click', () => showImage(currentImageIndex + 1));
+        // Навигация по клавиатуре
+        document.addEventListener('keydown', (e) => {
+            if (imageModal.style.display === 'block') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        showImage(currentImageIndex - 1);
+                        break;
+                    case 'ArrowRight':
+                        showImage(currentImageIndex + 1);
+                        break;
+                    case 'Escape':
+                        closeModal();
+                        break;
+                }
+            }
+        });
+
+        // Загрузка дополнительных фотографий
+        loadMoreBtn.addEventListener('click', () => {
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.category;
+            const filteredPhotos = activeFilter === 'all' ? photos : photos.filter(photo => photo.category === activeFilter);
+            currentPage++;
+            displayPhotos(filteredPhotos, currentPage);
+        });
 
         // Изначальное отображение всех фотографий
         displayPhotos(photos);
