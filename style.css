@@ -60,36 +60,7 @@ align-items: center;
 margin-right: 10px;
 color: var(--accent);
 }
-.mobile-menu-btn {
-display: none;
-background: none;
-border: none;
-color: var(--white);
-font-size: 1.5rem;
-cursor: pointer;
-}
-.language-switcher {
-    display: flex;
-    gap: 5px;
-    margin-left: 20px;
-}
 
-.language-btn {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 0.8rem;
-}
-
-.language-btn:hover, .language-btn.active {
-    background: var(--accent);
-    color: var(--text);
-    border-color: var(--accent);
-}
 /* Навигация */
 nav ul {
 display: flex;
@@ -270,7 +241,7 @@ transform: scale(1.05);
 .about-text {
 padding: 20px;
 margin: 10px;
-margin-top: -60px;
+margin-top: -40px;
 text-align: justify;
 }
 
