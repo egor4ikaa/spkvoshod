@@ -371,9 +371,6 @@ opacity: 1;
 }
 
 /* Контакты */
-.section-title {
-    margin-top: -30px;
-}
 .contacts-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
