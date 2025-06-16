@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" href="orig.jpeg" type="jpeg">
     <link rel="stylesheet" href="album.css">
-    </head>
+</head>
 <body>
     <div class="container">
         <header>
             <h1>Альбом СПК "Восход"</h1>
             <p class="subtitle">Фотогалерея нашего сельскохозяйственного предприятия</p>
         </header>
-        
+
         <div class="category-filters">
             <button class="filter-btn active" data-category="all">Все</button>
             <button class="filter-btn" data-category="work">Работа</button>
@@ -22,12 +22,12 @@
             <button class="filter-btn" data-category="staff">Персонал</button>
             <button class="filter-btn" data-category="equipment">Оборудование</button>
         </div>
-        
+
         <div class="gallery-container">
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Фотографии будут добавляться через JavaScript -->
             </div>
-            
+
             <button class="load-more" id="loadMore">Загрузить еще</button>
         </div>
     </div>
@@ -64,7 +64,7 @@
             { id: 12, src: 'personal-4.jpg', title: 'Женский персонал', category: 'staff', date: '29.03.2024' },
             // Добавьте больше фотографий по необходимости
         ];
-        
+
         // Элементы DOM
         const galleryGrid = document.getElementById('galleryGrid');
         const loadMoreBtn = document.getElementById('loadMore');
@@ -76,150 +76,68 @@
         const closeBtn = document.querySelector('.close-btn');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
-        
-        // Переменные состояния
-        let currentCategory = 'all';
-        let visiblePhotos = 8;
-        let currentPhotos = [];
-        let currentIndex = 0;
-        
-        // Инициализация галереи
-        function initGallery() {
-            filterPhotos();
-            renderPhotos();
-            
-            // Ленивая загрузка изображений
-            const lazyImages = document.querySelectorAll('.gallery-img[data-src]');
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
-                    }
+
+
+        function displayPhotos(filteredPhotos) {
+            galleryGrid.innerHTML = ''; // Очищаем галерею перед отображением новых фото
+            filteredPhotos.forEach(photo => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('gallery-item');
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.title;
+                img.addEventListener('click', () => {
+                    openModal(photo);
                 });
-            });
-            
-            lazyImages.forEach(img => imageObserver.observe(img));
-        }
-        
-        // Фильтрация фотографий по категории
-        function filterPhotos() {
-            if (currentCategory === 'all') {
-                currentPhotos = [...photos];
-            } else {
-                currentPhotos = photos.filter(photo => photo.category === currentCategory);
-            }
-            visiblePhotos = 8; // Сброс счетчика при смене категории
-        }
-        
-        // Отрисовка фотографий
-        function renderPhotos() {
-            const photosToShow = currentPhotos.slice(0, visiblePhotos);
-            
-            galleryGrid.innerHTML = photosToShow.map(photo => `
-                <div class="gallery-item" data-id="${photo.id}" data-category="${photo.category}">
-                    <img class="gallery-img" data-src="${photo.src}" alt="${photo.title}">
-                    <div class="image-info">
-                        <h4 class="image-title">${photo.title}</h4>
-                        <p class="image-date">${photo.date}</p>
-                    </div>
-                </div>
-            `).join('');
-            
-            // Показать/скрыть кнопку "Загрузить еще"
-            loadMoreBtn.style.display = visiblePhotos >= currentPhotos.length ? 'none' : 'block';
-            
-            // Добавить обработчики событий для открытия модального окна
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', () => openModal(parseInt(item.dataset.id)));
+                imgContainer.appendChild(img);
+                galleryGrid.appendChild(imgContainer);
             });
         }
-        
-        // Открытие модального окна
-        function openModal(id) {
-            currentIndex = currentPhotos.findIndex(photo => photo.id === id);
-            updateModal();
-            imageModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+
+        function filterPhotos(category) {
+            const filteredPhotos = category === 'all' ? photos : photos.filter(photo => photo.category === category);
+            displayPhotos(filteredPhotos);
         }
-        
-        // Обновление содержимого модального окна
-        function updateModal() {
-            const photo = currentPhotos[currentIndex];
-            modalImage.src = photo.src;
-            modalTitle.textContent = photo.title;
-            modalDate.textContent = photo.date;
-            modalImage.classList.add('fade-in');
-            
-            setTimeout(() => {
-                modalImage.classList.remove('fade-in');
-            }, 500);
-        }
-        
-        // Закрытие модального окна
-        function closeModal() {
-            imageModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Навигация по фотографиям в модальном окне
-        function navigate(direction) {
-            if (direction === 'prev' && currentIndex > 0) {
-                currentIndex--;
-            } else if (direction === 'next' && currentIndex < currentPhotos.length - 1) {
-                currentIndex++;
-            }
-            updateModal();
-        }
-        
-        // Обработчики событий
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                currentCategory = btn.dataset.category;
-                filterPhotos();
-                renderPhotos();
+                filterPhotos(btn.dataset.category);
             });
         });
-        
-        loadMoreBtn.addEventListener('click', () => {
-            visiblePhotos += 4;
-            renderPhotos();
-            
-            // Прокрутка к новым элементам
-            setTimeout(() => {
-                const items = document.querySelectorAll('.gallery-item');
-                if (items.length > 0) {
-                    items[items.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            }, 100);
+
+        // Модальное окно
+        function openModal(photo) {
+            modalImage.src = photo.src;
+            modalTitle.textContent = photo.title;
+            modalDate.textContent = photo.date;
+            imageModal.style.display = 'block';
+        }
+
+        closeBtn.addEventListener('click', () => {
+            imageModal.style.display = 'none';
         });
-        
-        closeBtn.addEventListener('click', closeModal);
-        prevBtn.addEventListener('click', () => navigate('prev'));
-        nextBtn.addEventListener('click', () => navigate('next'));
-        
-        // Закрытие по клику вне изображения
-        imageModal.addEventListener('click', (e) => {
-            if (e.target === imageModal) {
-                closeModal();
+
+        //Функция для переключения картинок в модальном окне
+        let currentImageIndex = 0;
+        function showImage(index) {
+            if (index < 0) {
+                currentImageIndex = photos.length - 1;
+            } else if (index >= photos.length) {
+                currentImageIndex = 0;
+            } else {
+                currentImageIndex = index;
             }
-        });
-        
-        // Навигация клавиатурой
-        document.addEventListener('keydown', (e) => {
-            if (imageModal.style.display === 'block') {
-                if (e.key === 'Escape') closeModal();
-                if (e.key === 'ArrowLeft') navigate('prev');
-                if (e.key === 'ArrowRight') navigate('next');
-            }
-        });
-        
-        // Инициализация при загрузке
-        window.addEventListener('DOMContentLoaded', initGallery);
+            openModal(photos[currentImageIndex]);
+        }
+
+
+        prevBtn.addEventListener('click', () => showImage(currentImageIndex - 1));
+        nextBtn.addEventListener('click', () => showImage(currentImageIndex + 1));
+
+        // Изначальное отображение всех фотографий
+        displayPhotos(photos);
     </script>
 </body>
 </html>
