@@ -51,11 +51,11 @@
         // Данные фотографий (в реальном проекте можно загружать с сервера)
         const photos = [
             { id: 1, src: 'rabota.jpg', title: 'Современная техника', category: 'work', date: '15.05.2023' },
-            { id: 2, src: 'rabota-2.jpg', title: 'Работа в поле', category: 'work', date: '20.06.2024' },
-            { id: 3, src: 'rabota-3.jpg', title: 'Сельхозтехника', category: 'work', date: '10.07.2024' },
-            { id: 4, src: 'rabota-4.jpg', title: 'Уборочная кампания', category: 'work', date: '25.08.2024' },
-            { id: 5, src: 'zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building', date: '05.04.2024' },
-            { id: 6, src: 'ferma.jpg', title: 'Коровники', category: 'building', date: '12.04.2024' },
+            { id: 2, src: 'ferma.jpg', title: 'Коровники', category: 'building', date: '12.04.2024' },
+            { id: 3, src: 'rabota-2.jpg', title: 'Работа в поле', category: 'work', date: '20.06.2024' },
+            { id: 4, src: 'rabota-3.jpg', title: 'Сельхозтехника', category: 'work', date: '10.07.2024' },
+            { id: 5, src: 'rabota-4.jpg', title: 'Уборочная кампания', category: 'work', date: '25.08.2024' },
+            { id: 6, src: 'zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building', date: '05.04.2024' },
             { id: 7, src: 'milk_apparat.jpg', title: 'Молочное оборудование', category: 'equipment', date: '18.05.2024' },
             { id: 8, src: 'vladelec.jpg', title: 'Председатель Клековкин В.И.', category: 'staff', date: '01.03.2024' },
             { id: 9, src: 'personal-2.jpg', title: 'Работники фермы', category: 'staff', date: '15.03.2024' },
@@ -77,7 +77,7 @@
 
         // Текущий индекс для пагинации
         let currentPage = 1;
-        const photosPerPage = 8;
+        const photosPerPage = 4;
 
         function displayPhotos(filteredPhotos, page = 1) {
             galleryGrid.innerHTML = ''; // Очищаем галерею перед отображением новых фото
