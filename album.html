@@ -21,6 +21,7 @@
             <button class="filter-btn" data-category="building">Здания</button>
             <button class="filter-btn" data-category="staff">Персонал</button>
             <button class="filter-btn" data-category="equipment">Оборудование</button>
+            <button class="filter-btn" data-category="animals">Животные</button>
         </div>
 
         <div class="gallery-container">
@@ -50,16 +51,69 @@
     <script>
         // Данные фотографий (в реальном проекте можно загружать с сервера)
         const photos = [
-            { id: 1, src: 'rabota.jpg', title: 'Современная техника', category: 'work', date: '15.05.2023' },
-            { id: 2, src: 'ferma.jpg', title: 'Коровники', category: 'building', date: '12.04.2024' },
-            { id: 3, src: 'rabota-2.jpg', title: 'Работа в поле', category: 'work', date: '20.06.2024' },
-            { id: 4, src: 'rabota-3.jpg', title: 'Сельхозтехника', category: 'work', date: '10.07.2024' },
-            { id: 5, src: 'rabota-4.jpg', title: 'Уборочная кампания', category: 'work', date: '25.08.2024' },
-            { id: 6, src: 'zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building', date: '05.04.2024' },
-            { id: 7, src: 'milk_apparat.jpg', title: 'Молочное оборудование', category: 'equipment', date: '18.05.2024' },
-            { id: 8, src: 'vladelec.jpg', title: 'Председатель Клековкин В.И.', category: 'staff', date: '01.03.2024' },
-            { id: 9, src: 'personal-2.jpg', title: 'Работники фермы', category: 'staff', date: '15.03.2024' },
-            { id: 10, src: 'personal-3.jpg', title: 'Специалисты', category: 'staff', date: '22.03.2024' },
+            { id: 1, src: 'rabota.jpg', title: 'Современная техника', category: 'work' },
+            { id: 2, src: 'ferma.jpg', title: 'Коровники', category: 'building' },
+            { id: 3, src: 'rabota-2.jpg', title: 'Работа в поле', category: 'work' },
+            { id: 4, src: 'rabota-3.jpg', title: 'Сельхозтехника', category: 'work' },
+            { id: 5, src: 'rabota-4.jpg', title: 'Уборочная кампания', category: 'work' },
+            { id: 6, src: 'zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building' },
+            { id: 7, src: 'milk_apparat.jpg', title: 'Молочное оборудование', category: 'equipment', },
+            { id: 8, src: 'vladelec.jpg', title: 'Председатель Клековкин В.И.', category: 'staff', },
+            { id: 9, src: 'personal-2.jpg', title: 'Работники фермы', category: 'staff', },
+            { id: 10, src: 'personal-3.jpg', title: 'Специалисты', category: 'staff', },
+            { id: 11, src: '1 ferma.jpeg', title: '', category: 'animals', },
+            { id: 12, src: '6 ferma.jpeg', title: '', category: 'animals', },
+            { id: 13, src: '13 ferma.jpeg', title: '', category: 'animals', },
+            { id: 14, src: '15 ferma.jpeg', title: '', category: 'animals', },
+            { id: 15, src: '17 ferma.jpeg', title: '', category: 'animals', },
+            { id: 16, src: '18 ferma.jpeg', title: '', category: 'animals', },
+            { id: 17, src: '24 ferma.jpeg', title: '', category: 'animals', },
+            { id: 18, src: '26 ferma.jpeg', title: '', category: 'animals', },
+            { id: 19, src: '28 ferma.jpeg', title: '', category: 'animals', },
+            { id: 20, src: '38 ferma.jpeg', title: '', category: 'animals', },
+            { id: 21, src: '39 ferma.jpeg', title: '', category: 'animals', },
+            { id: 22, src: '40 ferma.jpeg', title: '', category: 'animals', },
+            { id: 23, src: '42 ferma.jpeg', title: '', category: 'animals', },
+            { id: 24, src: '50 ferma.jpeg', title: '', category: 'animals', },
+            { id: 25, src: '51 ferma.jpeg', title: '', category: 'animals', },
+            { id: 26, src: '50 ferma.jpeg', title: '', category: 'animals', },
+            { id: 27, src: '46 ferma.jpeg', title: '', category: 'animals', },
+            { id: 28, src: '66 ferma.jpeg', title: '', category: 'animals', },
+            { id: 29, src: '72 ferma.jpeg', title: '', category: 'animals', },
+            { id: 30, src: '82 ferma.jpeg', title: '', category: 'animals', },
+            { id: 31, src: '14 ferma.jpeg', title: 'Заготовка силоса', category: 'work' },
+            { id: 32, src: '21 ferma.jpeg', title: '', category: 'work' },
+            { id: 33, src: '14 ferma.jpeg', title: '', category: 'work' },
+            { id: 34, src: '2 ferma', title: '', category: 'building' },
+            { id: 35, src: '4 ferma', title: '', category: 'building' },
+            { id: 36, src: '5 ferma', title: '', category: 'building' },
+            { id: 37, src: '9 ferma', title: '', category: 'building' },
+            { id: 38, src: '27 ferma', title: '', category: 'building' },
+            { id: 39, src: '29 ferma', title: '', category: 'building' },
+            { id: 40, src: '31 ferma', title: '', category: 'building' },
+            { id: 41, src: '33 ferma', title: '', category: 'building' },
+            { id: 43, src: '55 ferma', title: '', category: 'building' },
+            { id: 44, src: '47 ferma', title: '', category: 'building' },
+            { id: 45, src: '52 ferma', title: 'Администрация СПК "Восход"', category: 'building' },
+            { id: 46, src: '58 ferma', title: '', category: 'building' },
+            { id: 47, src: '61 ferma', title: '', category: 'building' },
+            { id: 48, src: '62 ferma', title: '', category: 'building' },
+            { id: 49, src: '67 ferma', title: '', category: 'building' },
+            { id: 50, src: '66 ferma', title: '', category: 'building' },
+            { id: 51, src: '75 ferma', title: '', category: 'building' },
+            { id: 52, src: '78 ferma', title: '', category: 'building' },
+            { id: 53, src: '75 ferma', title: '', category: 'building' },
+            { id: 53, src: '81 ferma', title: '', category: 'building' },
+            { id: 54, src: '29 ferma', title: 'Молочное оборудование', category: 'equipment', },
+            { id: 55, src: '31 ferma', title: 'Молочное оборудование', category: 'equipment', },
+            { id: 56, src: '30 ferma', title: '', category: 'equipment', },
+            { id: 57, src: '32 ferma', title: '', category: 'equipment', },
+            { id: 58, src: '33 ferma', title: '', category: 'equipment', },
+            { id: 59, src: '31 ferma', title: '', category: 'equipment', },
+            { id: 60, src: '35 ferma', title: '', category: 'equipment', },
+            { id: 61, src: '82 ferma', title: '', category: 'equipment', },
+            
+            
             // Добавьте больше фотографий по необходимости
         ];
 
@@ -77,7 +131,7 @@
 
         // Текущий индекс для пагинации
         let currentPage = 1;
-        const photosPerPage = 4;
+        const photosPerPage = 8;
 
         function displayPhotos(filteredPhotos, page = 1) {
             galleryGrid.innerHTML = ''; // Очищаем галерею перед отображением новых фото
